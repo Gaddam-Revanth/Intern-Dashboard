@@ -27,7 +27,7 @@ export const Profile = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch('http://localhost:3001/api/users/user1'); // Assuming 'user1' is the current user ID
+        const response = await fetch('/api/users/user1'); // Assuming 'user1' is the current user ID
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -61,7 +61,7 @@ export const Profile = () => {
 
   const handleSave = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/users/user1', {
+      const response = await fetch('/api/users/user1', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

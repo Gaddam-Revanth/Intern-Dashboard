@@ -5,6 +5,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/hooks/use-toast';
+import { useNavigate } from 'react-router-dom';
 
 interface SignupFormProps {
   onToggleMode: () => void;
@@ -17,6 +18,7 @@ export const SignupForm: React.FC<SignupFormProps> = ({ onToggleMode }) => {
   const [isLoading, setIsLoading] = useState(false);
   const { signup } = useAuth();
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,6 +31,7 @@ export const SignupForm: React.FC<SignupFormProps> = ({ onToggleMode }) => {
           title: "Account created!",
           description: "Welcome to the intern dashboard.",
         });
+        navigate('/'); // Navigate to dashboard after successful signup
       } else {
         toast({
           title: "Signup failed",
