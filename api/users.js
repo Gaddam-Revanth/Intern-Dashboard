@@ -14,7 +14,7 @@ const readData = () => {
     const data = fs.readFileSync(dataFilePath, 'utf8');
     return JSON.parse(data);
   } catch (error) {
-    console.error('Error reading data file:', error);
+    console.error('Error reading data file:', error.message, error.stack);
     return { users: [], leaderboard: [], totalDonationsRaised: 0 };
   }
 };
@@ -24,7 +24,7 @@ const writeData = (data) => {
   try {
     fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2), 'utf8');
   } catch (error) {
-    console.error('Error writing data file:', error);
+    console.error('Error writing data file:', error.message, error.stack);
   }
 };
 
