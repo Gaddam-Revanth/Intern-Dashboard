@@ -1,73 +1,107 @@
-# Welcome to your Lovable project
+# Intern Dashboard
 
-## Project info
+This project is a simple full-stack intern portal designed to showcase basic functionalities including user authentication, a personalized dashboard, and a leaderboard.
 
-**URL**: https://lovable.dev/projects/0a309ef3-cca2-4600-8f77-c5f181c9fa01
+## Features
 
-## How can I edit this code?
+### Frontend
+- **Dummy Login/Signup:** A basic authentication system without actual backend authentication, allowing users to log in and sign up with dummy credentials.
+- **Dashboard:** Displays intern-specific information:
+  - Intern Name
+  - Dummy Referral Code
+  - Total Donations Raised (fetched from the backend)
+  - Rewards/Unlockables Section (static display)
+- **Leaderboard:** A page displaying a list of interns and their total donations, demonstrating data retrieval from the backend.
 
-There are several ways of editing your application.
+### Backend
+- **REST API:** A simple Node.js and Express-based REST API that serves dummy data for user profiles, referral codes, donation amounts, and leaderboard entries.
+- **Data Storage:** Uses a local `user_data.json` file for persistent storage of dummy user data.
 
-**Use Lovable**
+## Technologies Used
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/0a309ef3-cca2-4600-8f77-c5f181c9fa01) and start prompting.
+### Frontend
+- **React:** A JavaScript library for building user interfaces.
+- **Vite:** A fast build tool for modern web projects.
+- **Tailwind CSS:** A utility-first CSS framework for rapid UI development.
 
-Changes made via Lovable will be committed automatically to this repo.
+### Backend
+- **Node.js:** A JavaScript runtime built on Chrome's V8 JavaScript engine.
+- **Express.js:** A fast, unopinionated, minimalist web framework for Node.js.
 
-**Use your preferred IDE**
+### Data Storage
+- **JSON File:** Simple JSON file (`user_data.json`) for storing dummy data.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Setup and Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Follow these steps to set up and run the project locally:
 
-Follow these steps:
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/Gaddam-Revanth/Intern-Dashboard.git
+    cd Intern-Dashboard
+    ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2.  **Install Frontend Dependencies:**
+    Navigate to the `Intern-Dashboard` directory and install the necessary packages for the frontend:
+    ```bash
+    npm install
+    ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+3.  **Install Backend Dependencies:**
+    No separate installation is needed for the backend as it uses Node.js and Express, which are typically managed within the main `package.json`.
 
-# Step 3: Install the necessary dependencies.
-npm i
+## Running the Application
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+1.  **Start the Backend Server:**
+    From the `Intern-Dashboard` directory, run the backend server:
+    ```bash
+    node server.cjs
+    ```
+    The backend server will start on `http://localhost:3001`.
+
+2.  **Start the Frontend Development Server:**
+    In a new terminal, from the `Intern-Dashboard` directory, start the frontend:
+    ```bash
+    npm run dev
+    ```
+    The frontend application will be accessible at `http://localhost:8080/profile` (or a similar address provided by Vite).
+
+## Project Structure
+
+```
+Intern-Dashboard/
+├── data/
+│   └── user_data.json
+├── public/
+├── src/
+│   ├── App.css
+│   ├── App.tsx
+│   ├── components/       # Reusable UI components
+│   ├── contexts/         # React Contexts (e.g., AuthContext)
+│   ├── hooks/            # Custom React hooks
+│   ├── lib/              # Utility functions
+│   ├── pages/            # Main application pages (Dashboard, Auth, Leaderboard, etc.)
+│   └── main.tsx
+├── server.cjs            # Backend Express server
+├── package.json          # Project dependencies and scripts
+├── tailwind.config.ts    # Tailwind CSS configuration
+├── vite.config.ts        # Vite configuration
+└── README.md             # Project documentation
 ```
 
-**Edit a file directly in GitHub**
+## API Endpoints
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+The backend provides the following REST API endpoints:
 
-**Use GitHub Codespaces**
+-   `GET /api/users/:userId`: Retrieve user data.
+-   `PUT /api/users/:userId`: Update user data.
+-   `GET /api/leaderboard`: Retrieve leaderboard data.
+-   `GET /api/total`: Retrieve total donations raised.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Contributing
 
-## What technologies are used for this project?
+Feel free to fork the repository and contribute. For major changes, please open an issue first to discuss what you would like to change.
 
-This project is built with:
+## License
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/0a309ef3-cca2-4600-8f77-c5f181c9fa01) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+This project is open source and available under the MIT License.
