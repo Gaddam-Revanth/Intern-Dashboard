@@ -21,8 +21,6 @@ This project is a simple full-stack intern portal designed to showcase basic fun
 ![Leaderboard Part 2](Images/Leaderboard2.png)
 
 
-
-
 ### Frontend
 - **Dummy Login/Signup:** A basic authentication system without actual backend authentication, allowing users to log in and sign up with dummy credentials.
 - **Dashboard:** Displays intern-specific information:

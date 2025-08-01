@@ -1,7 +1,12 @@
-const path = require('path');
-const fs = require('fs');
+import express from 'express';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 
-const dataFilePath = path.join(__dirname, '..', 'data', 'user_data.json');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const dataFilePath = join(__dirname, '..', 'data', 'user_data.json');
 
 // Helper function to read data
 const readData = () => {
@@ -14,11 +19,11 @@ const readData = () => {
   }
 };
 
-module.exports = (req, res) => {
-  if (req.method === 'GET') {
-    const data = readData();
-    res.json({ totalDonationsRaised: data.totalDonationsRaised });
-  } else {
-    res.status(405).send('Method Not Allowed');
-  }
-};
+const router = express.Router();
+
+router.get('/', (req, res) => {
+  const data = readData();
+  res.json({ totalDonationsRaised: data.totalDonationsRaised });
+});
+
+export default router;

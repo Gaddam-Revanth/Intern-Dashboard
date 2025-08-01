@@ -1,7 +1,12 @@
-const path = require('path');
-const fs = require('fs');
+import express from 'express';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 
-const dataFilePath = path.join(__dirname, '..', 'data', 'user_data.json');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const dataFilePath = join(__dirname, '..', 'data', 'user_data.json');
 
 // Helper function to read data
 const readData = () => {
@@ -23,39 +28,35 @@ const writeData = (data) => {
   }
 };
 
-module.exports = (req, res) => {
-  if (req.method === 'GET') {
-    if (req.url === '/api/users') {
-      const data = readData();
-      res.json(data.users);
-    } else if (req.url.startsWith('/api/users/')) {
-      const userId = req.url.split('/').pop();
-      const data = readData();
-      const user = data.users.find(u => u.id === userId);
-      if (user) {
-        res.json(user);
-      } else {
-        res.status(404).send('User not found');
-      }
-    } else {
-      res.status(404).send('Not Found');
-    }
-  } else if (req.method === 'PUT') {
-    if (req.url.startsWith('/api/users/')) {
-      const userId = req.url.split('/').pop();
-      const data = readData();
-      const userIndex = data.users.findIndex(u => u.id === userId);
-      if (userIndex !== -1) {
-        data.users[userIndex] = { ...data.users[userIndex], ...req.body };
-        writeData(data);
-        res.json(data.users[userIndex]);
-      } else {
-        res.status(404).send('User not found');
-      }
-    } else {
-      res.status(404).send('Not Found');
-    }
+const router = express.Router();
+
+router.get('/', (req, res) => {
+  const data = readData();
+  res.json(data.users);
+});
+
+router.get('/:userId', (req, res) => {
+  const userId = req.params.userId;
+  const data = readData();
+  const user = data.users.find(u => u.id === userId);
+  if (user) {
+    res.json(user);
   } else {
-    res.status(405).send('Method Not Allowed');
+    res.status(404).send('User not found');
   }
-};
+});
+
+router.put('/:userId', (req, res) => {
+  const userId = req.params.userId;
+  const data = readData();
+  const userIndex = data.users.findIndex(u => u.id === userId);
+  if (userIndex !== -1) {
+    data.users[userIndex] = { ...data.users[userIndex], ...req.body };
+    writeData(data);
+    res.json(data.users[userIndex]);
+  } else {
+    res.status(404).send('User not found');
+  }
+});
+
+export default router;
