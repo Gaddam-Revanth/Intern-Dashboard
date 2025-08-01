@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { LoginForm } from '@/components/LoginForm';
 import { SignupForm } from '@/components/SignupForm';
+import { Globe } from 'lucide-react';
 
 export const Auth: React.FC = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -18,7 +19,7 @@ export const Auth: React.FC = () => {
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold mb-2 bg-gradient-primary bg-clip-text text-transparent">
-              InternHub
+              <Globe className="inline-block mr-2" size={36} /> InternHub
             </h1>
             <p className="text-muted-foreground">
               Your gateway to internship success
