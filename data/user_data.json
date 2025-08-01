@@ -1,0 +1,59 @@
+{
+  "users": [
+    {
+      "id": "user1",
+      "username": "john.doe",
+      "email": "john.doe@example.com",
+      "mobile": "123-456-7890",
+      "referralCode": "JOHNDOE123",
+      "amountRaised": 1250,
+      "monthlyRaised": [
+        { "month": "Jan", "amount": 800 },
+        { "month": "Feb", "amount": 1200 },
+        { "month": "Mar", "amount": 950 },
+        { "month": "Apr", "amount": 1500 },
+        { "month": "May", "amount": 1100 },
+        { "month": "Jun", "amount": 1300 }
+      ]
+    },
+    {
+      "id": "user2",
+      "username": "jane.smith",
+      "email": "jane.smith@example.com",
+      "mobile": "987-654-3210",
+      "referralCode": "JANESMITH456",
+      "amountRaised": 2500,
+      "monthlyRaised": [
+        { "month": "Jan", "amount": 1500 },
+        { "month": "Feb", "amount": 2000 },
+        { "month": "Mar", "amount": 1800 },
+        { "month": "Apr", "amount": 2200 },
+        { "month": "May", "amount": 1900 },
+        { "month": "Jun", "amount": 2500 }
+      ]
+    }
+  ],
+  "leaderboard": [
+    {
+      "id": "user2",
+      "username": "jane.smith",
+      "totalDonations": 2500
+    },
+    {
+      "id": "user1",
+      "username": "john.doe",
+      "totalDonations": 1250
+    },
+    {
+      "id": "user3",
+      "username": "alice.jones",
+      "totalDonations": 3000
+    },
+    {
+      "id": "user4",
+      "username": "bob.brown",
+      "totalDonations": 800
+    }
+  ],
+  "totalDonationsRaised": 7550
+}
