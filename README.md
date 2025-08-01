@@ -2,7 +2,26 @@
 
 This project is a simple full-stack intern portal designed to showcase basic functionalities including user authentication, a personalized dashboard, and a leaderboard.
 
-## Features
+## Screen Shorts
+
+### Login Page
+![Login Page](Images/Login.png)
+
+### Signup Page
+![Signup Page](Images/signup.png)
+
+### Dashboard
+![Dashboard](Images/Dashboard.png)
+
+### Referral Code Section
+![Your Referral Code](Images/Your%20Referal%20Code.png)
+
+### Leaderboard
+![Leaderboard](Images/Leaderboard.png)
+![Leaderboard Part 2](Images/Leaderboard2.png)
+
+
+
 
 ### Frontend
 - **Dummy Login/Signup:** A basic authentication system without actual backend authentication, allowing users to log in and sign up with dummy credentials.
@@ -105,3 +124,4 @@ Feel free to fork the repository and contribute. For major changes, please open 
 ## License
 
 This project is open source and available under the MIT License.
+
